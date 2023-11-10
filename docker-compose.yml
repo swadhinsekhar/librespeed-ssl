@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: webserver
+    ports:
+      - "443:443" 
+      - "80:80" 
+    restart: unless-stopped
+    depends_on:
+      - librespeed
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl/cert.pem:/etc/ssl/certs/site.crt
+      - ./ssl/key.pem:/etc/ssl/private/site.dec.key
+    networks:
+      - st-net
+
+  librespeed:
+    image: adolfintel/speedtest
+    container_name: librespeed
+    ports:
+      - "8008:80"
+    environment:
+      MODE: backend
+      TELEMETRY: 'true'
+      DISABLE_IPINFO: 'false'
+    restart: unless-stopped
+    networks:
+      - st-net
+
+networks:
+  st-net:
+    driver: bridge
