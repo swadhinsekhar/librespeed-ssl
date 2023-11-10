@@ -1,7 +1,7 @@
 # Librespeed Server
 
 ## Add system IP Address
-IP.<next-highest-num> <ip-address>
+IP.`next-highest-num` `ip-address`
 
 Example:
 `IP.2 = 192.168.10.100`
