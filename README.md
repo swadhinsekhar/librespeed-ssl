@@ -36,12 +36,12 @@ sudo docker-compose down
 sudo docker-compose logs -f
 ```
 
-## Test swiftest-cli with https
+## Test with https
 ```shell
-./swiftest-cli -k --mbps -s https://<speedtest-server-ip> -p 3 --etsi --etsi-download-mb 200 --etsi-upload-mb 200 -t 30
+./<speedtest-agent> -s https://<speedtest-server-ip>
 ```
 
-## Test swiftest-cli with http
+## Test with http
 ```shell
-./swiftest-cli -k --mbps -s http://<speedtest-server-ip>:8008 -p 3 --etsi --etsi-download-mb 200 --etsi-upload-mb 200 -t 30
+./<speedtest-gent> -s http://<speedtest-server-ip>:8008
 ```
