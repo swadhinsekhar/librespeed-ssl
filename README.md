@@ -43,5 +43,15 @@ sudo docker-compose logs -f
 
 ## Test with http
 ```shell
-./<speedtest-gent> -s http://<speedtest-server-ip>:8008
+./<speedtest-gent> -s http://<speedtest-server-ip>:8008 -k
+```
+
+## Check https
+```shell
+curl https://<IP ADDRESS>/getIP.php -k
+```
+
+## Check http
+```shell
+curl http://<IP ADDRESS>:8008/getIP.php -k
 ```
